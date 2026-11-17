@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.api.transactions import router as transactions_router
 
 app = FastAPI(
     title="SentinelAI",
@@ -6,6 +7,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
+app.include_router(transactions_router)
 
 @app.get("/")
 def home():
